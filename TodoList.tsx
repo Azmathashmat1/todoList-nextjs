@@ -33,7 +33,7 @@ const TodoList = () => {
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-black">
+        <div className="flex flex-col min-h-screen bg-black text-white">
             <header className="relative bg-sky-500 text-white py-4 overflow-hidden">
                 <div className="absolute inset-0 rounded-lg border-4 border-transparent" 
                      style={{
@@ -59,7 +59,7 @@ const TodoList = () => {
                                 type="text"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
-                                className="flex-grow p-2 border-gray-400 rounded-lg"
+                                className="flex-grow p-2 border-white rounded-lg text-black placeholder:text-gray-400"
                                 placeholder="Add a new task ..."
                             />
                             <button
@@ -73,8 +73,11 @@ const TodoList = () => {
 
                     <ul className="space-y-2">
                         {todos.map((todo) => (
-                            <li key={todo.id} className={`flex items-center justify-between p-2 border border-slate-400 rounded-lg ${todo.completed ? 'bg-lime-400 line-through' : 'bg-amber-300'}`}>
-                                <span>{todo.text}</span>
+                            <li 
+                                key={todo.id} 
+                                className={`flex items-center justify-between p-2 border border-slate-400 rounded-lg ${todo.completed ? 'bg-lime-400 line-through' : 'bg-amber-300'}`}
+                            >
+                                <span className="text-black">{todo.text}</span>
                                 <div>
                                     <button
                                         onClick={() => toggleTodo(todo.id)}
@@ -99,6 +102,3 @@ const TodoList = () => {
 };
 
 export default TodoList;
-
-
-
